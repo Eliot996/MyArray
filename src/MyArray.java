@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class MyArray<T> {
 
     private Object[] array;
@@ -30,6 +28,18 @@ public class MyArray<T> {
         size++;
     }
 
+    public void remove(int index) {
+        for (int i = index; i < size; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+    }
+
+    public void clear() {
+        this.array = new Object[10];
+        this.size = 0;
+    }
+
     public void increaseArray() {
         Object[] array2 = new Object[array.length + 10];
 
@@ -46,7 +56,7 @@ public class MyArray<T> {
     public static void main(String[] args) {
         MyArray<Integer>  array = new MyArray<>();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             array.add(i);
         }
 
@@ -61,5 +71,18 @@ public class MyArray<T> {
             System.out.print(array.get(i));
         }
 
+        array.remove(5);
+
+        System.out.println();
+        for (int i = 0; i < array.size; i++) {
+            System.out.print(array.get(i));
+        }
+
+        array.clear();
+
+        System.out.println();
+        for (int i = 0; i < array.size; i++) {
+            System.out.print(array.get(i));
+        }
     }
 }
