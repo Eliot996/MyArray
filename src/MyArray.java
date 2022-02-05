@@ -16,6 +16,9 @@ public class MyArray<T> {
     }
 
     public void add(int index, T element) {
+        if (index > size) throw new IndexOutOfBoundsException("You cannot add an element beyond the current size");
+        if (index < 0) throw new IndexOutOfBoundsException("You cannot add an element to a negative index");
+
         if (size >= array.length) {
             increaseArray();
         }
@@ -29,6 +32,9 @@ public class MyArray<T> {
     }
 
     public void remove(int index) {
+        if (index > size) throw new IndexOutOfBoundsException("You cannot remove an element from beyond the current size");
+        if (index < 0) throw new IndexOutOfBoundsException("You cannot remove an element from a negative index");
+
         for (int i = index; i < size; i++) {
             array[i] = array[i + 1];
         }
@@ -50,7 +56,11 @@ public class MyArray<T> {
     }
 
     public T get(int index) {
-        return (T) array[index];
+            return (T) array[index];
+    }
+
+    public int size() {
+        return size;
     }
 
     public static void main(String[] args) {
