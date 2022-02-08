@@ -109,7 +109,7 @@ public class MyArray<T> {
         // clear the array and print (should be empty line)
         array.clear();
 
-        System.out.println();
+        System.out.print("\nThere should be nothing here: ");
         for (int i = 0; i < array.size; i++) {
             System.out.print(array.get(i));
         }
